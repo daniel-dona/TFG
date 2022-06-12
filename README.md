@@ -4,9 +4,9 @@ En este repositorio se encuentra una relación de los entregables, productos y m
 
 ## Relación de recursos
 
-- Presentación: [Video] (https://github.com/daniel-dona/TFG/tree/main/presentacion/)
-- Memoria: [PDF](https://github.com/daniel-dona/TFG/blob/main/memoria/pdf/PEC4__Memoria.pdf) [LaTeX]([https://github.com/daniel-dona/TFG/memoria/src/](https://github.com/daniel-dona/TFG/tree/main/memoria/src))
-- Muestras generadas: [Web] (https://daniel-dona.github.io/tfg-inference-samples/)
+- Presentación: [Video](https://github.com/daniel-dona/TFG/tree/main/presentacion/)
+- Memoria: [PDF](https://github.com/daniel-dona/TFG/blob/main/memoria/pdf/PEC4__Memoria.pdf) [LaTeX](https://github.com/daniel-dona/TFG/tree/main/memoria/src)
+- Muestras generadas: [Web](https://daniel-dona.github.io/tfg-inference-samples/)
 
 ## Sección de entregables
 
