@@ -1,4 +1,4 @@
-# Generación y detección de falsificaciones de voz en idioma castellano 
+# Generación y detección de falsificaciones de voz en idioma castellano - 2022
 
 En este repositorio se encuentra una relación de los entregables, productos y materiales textuales y audiovisuales de mi Trabajo de Fin de Grado, titulado "Generación y detección de falsificaciones de voz en idioma castellano".
 
