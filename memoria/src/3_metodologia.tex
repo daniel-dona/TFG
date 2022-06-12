@@ -1,0 +1,77 @@
+\section{Metodología}
+
+% Metodologías utilizadas en el trabajo. Hay que explicar y justificar por qué se ha utilizado cada una.
+
+El enfoque general del trabajo partió de una división en dos vertientes bien marcadas. Por una parte se identificó la necesidad de un estudio teórico general, que asentase la bases para progresar en otros aspectos del trabajo. Por otra parte se identificó una necesidad experimental capaz de probar la realidad más pragmática de las líneas del trabajo.
+
+En primer lugar se realizó un estudio general de la literatura existente para con ello empezar a encajar los elementos del mapa de conocimiento del dominio. Este estudio inicial no tenía por objetivo conocer los detalles de cada avance o desarrollo sino los ejes vertebradores y las grandes diferencias entre las diferentes soluciones.
+
+Una vez realizado dicho estudio inicial, se procedió a estructurar el grueso del trabajo tanto de estudio como experimental para el tiempo existente, limitando el alcance de las tareas a lo posiblemente abarcable.
+
+Se intentó al mismo tiempo equilibrar el poder ofrecer una visión general así como centrarnos en los mejores desarrollos, aquellos que constituyen el estado del arte. Respecto al estudio del dominio hemos distinguido el estudio teórico general del estudio de implementaciones particulares (modelos, herramientas, etc...). 
+
+Asimismo también hemos considerado relevante hacer una revisión de las herramientas comerciales que en cierto grado permiten realizar alguna tarea que hemos identificado importante para el proyecto. 
+
+
+\subsection{Estudio teórico general}
+
+El estudio teórico en cualquier ámbito puede enfocarse esencialmente desde dos perspectivas distintas cuando nos enfrentamos a un dominio desconocido: top-down y bottom-up.
+
+En el enfoque top-down se parte del estudio más abstracto y general, en nuestro caso mayormente esto se expresa estudiando los modelos de entrenamiento propuestos en publicaciones de expertos en el dominio, donde se detallan en cada caso. Para luego, una vez se tiene una comprensión general de sus diferencias bajar a los detalles de la implementación en sus componentes, arquitecturas o técnicas.
+
+En el enfoque bottom-up se parte de los componentes más pequeños para ensamblar luego un conocimiento más general del dominio como una suerte de propiedad emergente de la suma de cada componente en un diseño que aspira a cumplir un propósito.
+
+Estos enfoques no son antagónicos, el estudio necesariamente pasará por varias etapas donde se viajará de lo más concreto y particular a lo más abstracto y general, pero el enfoque principal e inicial del trabajo realizado ha sido el top-down.
+
+La aproximación más elevada al problema estudiado se ofrece de esta forma en el estudio del Estado del Arte, pues es este estudio el que responde y orienta los siguientes pasos y el posible aporte del trabajo.
+
+Por otra parte, los detalles relevantes cobre conceptos más concretos que necesariamente también se han abordado en el estudio se describe en el capítulo de Resultados como fruto de la labor de investigación.
+
+\subsection{Estudio de las implementaciones}
+
+\subsubsection{Modelos particulares}
+
+La mayor parte del conocimiento adquirible en este dominio viene del estudio de las propuestas y publicaciones particulares que realizan diferentes grupos de investigadores del campo. No existen manuales de referencia ni obras curadas similares de donde partir y las que existen solamente nos hablan del estado de cosas hace una década, nada que ver con la actualidad ni lo relevante para el trabajo.
+
+Por ello el estudio de publicaciones particulares centra la inmensa mayoría de la atención y referencias, por ser estas el vehículo de la mayoría de avances recientes, conformando el Estado del Arte.
+
+\subsubsection{Frameworks para entrenamientos}
+
+En la medida en que se empezó a trabajar con la base de código de alguno de los modelos a estudiar se dio cuenta de la falta total de mantenimiento y soporte que tenían las liberaciones originales. En algunos casos el código era incompatible con versiones modernas del software necesario para hacerlo funcionar, en algunos casos la incompatibilidad llegaba a ser con el propio hardware.
+
+Las versiones o reimplementaciones que más soporte tenían eran las que formaban parte de algún toolkit o framework, es decir, que eran un componente de un ecosistema o conjunto de herramientas para el trabajo en el ámbito de la síntesis de voz, el reconocimiento de voz o en algunos casos el procesamiento natural del lenguaje.
+
+Se decidió conducir a partir de entonces los experimentos y entrenamientos en alguno de esos ecosistemas donde los problemas de software se reducirían, algo realmente importante por lo limitado del marco temporal del proyecto.
+
+\subsubsection{Datasets del dominio}
+
+El dominio de trabajo también contempla datasets especiales para su entrenamiento y evaluación. Habitualmente estos datasets consisten en parejas de fragmentos de audio con su transcripción con el propósito de entrenar modelos generativos.
+
+De estos datasets todos los identificados como ampliamente empleados son en inglés, aunque existen en otros idiomas con un formato similar. La forma de trabajar con estos datasets ha consistido en extraer de ellos las características más relevantes para construir nuestro propio dataset.
+
+\subsection{Estudio de soluciones comerciales}
+
+Se valoró también la posibilidad de probar algunas soluciones comerciales o proyectos que están disponibles en la red para su uso o como parte de otras herramientas mayores, pero sus aplicaciones resultan bastante limitadas para lo buscado en este proyecto.
+
+Se consideraron las siguientes herramientas:
+
+\begin{itemize}
+    \item Resemble.ai
+    \item Respeecher.com
+    \item Descript.com
+    \item MURF.ai
+    \item fakeyou.com
+\end{itemize}
+
+Su relevancia se justifica por ser aquello a lo que primero tendría acceso un usuario no experto que se interese por el dominio, pero no realmente por el contenido del trabajo.
+
+\subsection{Entrenamiento y experimentación}
+
+En el caso de la experimentación la forma de abordar el trabajo siguió dos etapas distintas. 
+
+En primer lugar se marcó como objetivo reproducir los resultados originales documentados en las publicaciones, a continuación con el conocimiento adquirido de los modelos, realizar modificaciones razonadas de los modelos, sus implementaciones o sus hiperparámetros de entrenamiento buscando obtener resultados distintos que tuvieran algún interés.
+
+Los resultados de esta labor experimental se documentan en el capítulo de Resultados, comentando su relevancia, las dificultades encontradas y lo que podemos extraer de ellos.
+
+
+\newpage 

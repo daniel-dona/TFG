@@ -1,0 +1,59 @@
+\section{Resumen}
+
+\subsection{Antecedentes}
+
+La síntesis de voz de forma artificial es un campo en el que se ha trabajando durante varios siglos, empezando con los primeros intentos de imitación con aparatos pneumáticos y máquinas. Tanto es así que T. Dutoit \hyperref[RI_1]{[1]} en su revisión histórica de la materia comienza citando un pasaje de L. Euler:
+
+\begin{displayquote}
+«It would be a considerable invention indeed, that of a machine able to mimic speech, with its sounds and articulations. I think it is not impossible.»
+\end{displayquote}
+
+Pero aunque Euler soñase con tal posibilidad, aún necesirían pasa un par de siglos y avanzarse mucho en la electrónica analógica de principios del pasado siglo para acercarnos a algo que remotamente imite la voz humana.
+
+Saltando a tiempos más recientes nos encontramos con otros sistemas analógicos y digitales que han intentado codificar y reproducir la voz humana en ámbitos como las comunicaciones o la experimentación musical\footnote{Tanto es así que la primera máquina electrónica capaz de transmitir la voz humana de forma codificada (Vocoder) se conoce hoy  popularmente sobre todo como un recurso para la composición musical}. 
+
+Centrándonos en la última década, podemos encontrar por primera vez el uso de modelos de Aprendizaje Computacional para mejorar parte de sistemas de síntesis de voz programados paraméticamente. 
+
+Nuestra investigación se centra en estos últimos avances, que gracias a su gran salto en calidad y la facilidad para adaptarlos y entrenarlos han abierto la puerta por primera vez a la posibilidad de confundir la síntesis de voz con la voz real de un hablante conocido.
+
+Existe muy poco escrito sobre la síntesis de voz en castellano empleando alguno de estos modelos totalmente entrenados. Especialmente existe un vacío en lo que respecta a los modelos más reciente y que mejores resultados ofrecen. 
+
+La calidad de estos modelos es lo que más riesgo supone, no únicamente respecto a las personas que puedan ser engañadas, sino también a sistemas que emplean la voz como mecanismo de autenticación y autorización \hyperref[RI_2]{[2]}\hyperref[RI_3]{[3]}. 
+
+Este riesgo ha atraído en los últimos años gran atención, dando pie a la aparición de competiciones específicas para el diseño de técnicas y modelos de detección de estas falsificaciones.
+
+\subsection{Método}
+
+El presente trabajo de investigación se ha proyectado esencialmente en dos vertientes: una más teórica y de revisión del conocimiento actual en su Estado del Arte; otra más pragmática o experimental donde se intentará poner a prueba parte de dicho conocimiento.
+
+En la vertiente de investigación se ha comenzado el trabajo haciendo una revisión general de la literatura para centrar luego los esfuerzos en los desarrollos más recientes y aquellos que especialmente explotan los últimos avances en el ámbito de la Inteligencia Artificial.
+
+En lo que respecta a la experimentación, una vez asentado un conocimiento general del dominio se ha procedido a replicar los resultados experimentales estudiados, siendo estos mayormente en inglés y con algunos datasets estándar de facto. 
+
+Una vez se han conseguido buenos resultados en estos experimentos es cuando se ha intentado introducir el componente particular de este trabajo de investigación, buscando conseguir reproducciones capaces de confundirse con el hablante original.
+
+\subsection{Resultados}
+
+Este trabajo presenta una revisión de las técnicas más actuales para la falsificación de voz y especialmente aquellas que se basan en el uso de Inteligencia Artificial.
+
+De las mejores técnicas estudiadas se ha realizado también un estudio experimental particular en idioma castellano, para el cual se ha creado un dataset propio de voz, modelos entrenados con este dataset.
+
+Inicialmente se planteó la posibilidad de abordar no solo la evaluación de las posibilidades para generar estas falsificaciones y la propia generación de las mismas, sino también experimentar con técnicas de detección. Pero finalmente por las limitaciones temporales del proyecto esto último se documenta simplemente como línea de investigación futura.
+
+\subsection{Conclusiones}
+
+La síntesis de voz capaz de ofrecer resultados muy cercanos a la realidad se encuentra cada vez más perfeccionada, existe un interés legítimo para que este desarrollo continúe especialmente desde la perspectiva de la interacción persona-ordenador.
+
+Todos los desarrollos legítimos o que tengan una aplicación positiva para la sociedad pueden encontrar otros usos indudablemente más cuestionables. En este trabajo se ha comprobado la forma en la cual los avances en la transformación de texto a voz pueden suponer un problema de robo de identidad.
+
+La única forma de prevenir el uso malintencionado de estas y otras tecnologías parte de un conocimiento profundo de las mismas que permita diseñar estrategias de detección y mitigación. Algunas de estas estrategias también se han abordado en este trabajo tanto teórica como experimentalmente.
+
+\subsection{Aportación}
+
+Aunque esta no es la primera recopilación o revisión del Estado del Arte en síntesis de voz, sí ofrece una actualización a otras previas, incluyendo publicaciones de este mismo año y las mejoras que suponen.
+
+El aporte original de este trabajo es su contribución a la mejora de la síntesis de voz en castellano con modelos entrenados, especialmente el modelo VITS que representa el Estado del Arte en resultados y al mismo tiempo teniendo una implementación de código abierto. 
+
+Todos los resultados parciales, modelos, registros de entrenamiento, demostraciones y ejemplos de inferencias se proporcionan para su estudio o como punto de partida para otros entrenamientos.
+
+\newpage 

@@ -1,0 +1,91 @@
+\section{Discusión}
+
+A la luz de los resultados expuestos podemos ahora evaluar y discutir en qué medida se han cubierto las expectativas proyectadas al inicio de este trabajo de investigación.
+
+Los problemas aquí expuestos no son necesariamente calco exacto de aquellos inicialmente delineados, pues en el propio desarrollo del trabajo existe margen de reformulación de algunos de ellos siempre respetando los límites de las tesis de partida.
+
+Esto supone además el planteamiento de nuevos problemas, resueltos o no resueltos, a raíz del avance del trabajo, así como la síntesis de todo esto en líneas de investigación tanto del trabajo como futuras\footnote{Las líneas futuras se exponen en el capítulo de Conclusiones}.
+
+\subsection{Problemas resueltos}
+
+\subsubsection{Identificación del Estado del Arte}
+
+En un trabajo de investigación de estas características, donde se aborda un tema o problema de incipiente actualidad, es crucial tener el mejor y más actualizado conocimiento del dominio sobre el que se trabaja. Identificar los últimos avances era una tarea sin la cual el resto del trabajo no sería posible, o sería posible pero dejando en el tintero muchos aspectos.
+
+La dinámica de avances en el dominio parece estar gobernada por la publicación por parte de diferentes grupos de modelos completos que resuelven la tarea de sintetizar voz a partir de texto. En algunos casos estos modelos reciclan componentes, conceptos o modelos enteros previos pero sumándoles algún cambio.
+
+Finalmente se identificó como el mejor modelo actual el modelo VITS, que integra un entrenamiento basado en GAN y un mecanismo de atención basado en alineamiento monotónico.
+
+\subsubsection{Generación de datasets}
+
+En la medida en que buscábamos entrenar el modelo o modelos identificados en la exploración del Estado del Arte, necesitábamos datasets que pudiesen emplearse en la tarea.
+
+Encontrar diferentes datasets en inglés con el formato adecuado es una tarea sencilla, son los que se suelen emplear como estándar de facto en las pruebas de quienes publican los modelos. Pero encontrar datasets en castellano ya preparados para realizar nuestras pruebas no fue nada sencillo.
+
+Se hicieron pruebas con material procedente de LibriVox pero los resultados fueron malos, se intentó jugar con los datos de Mozilla Common Voice pero introducía otras variables en el trabajo como los entrenamientos con voz de múltiples hablantes no separada.
+
+Finalmente se decidió solo trabajar con el dataset propio, que se grabó progresivamente a lo largo del trabajo. De esta forma se aseguraba la calidad del material del dataset a la vez que permitía evaluar la calidad del resultado conociendo al hablante. Algunos detalles técnicos de la grabación se encuentran en el anexo \hyperref[Grabación de datasets]{Grabación de datasets}.
+
+\subsubsection{Entrenamiento de modelos}
+
+El entrenamiento de modelos existentes para la generación de voz era uno de los elementos fundamentales del trabajo. En primer lugar nos pusimos por tarea intentar reproducir de forma aproximada los resultados documentados del modelo en inglés, para luego poder empezar a experimentar con nuestro dataset en castellano.
+
+Se consiguió entrenar en una etapa muy temprana el modelo Tacotron 2, pero esto fue antes de tener conocimiento del modelo VITS, que sería en el que luego centraríamos la atención. Entrenar los modelos a partir de la liberación original de código por los autores fue una tarea compleja, pues incluso habiendo pasado un par de años, las dependencias de software se encontraban en muchos casos rotas.
+
+Luego de intentar el entrenamiento sobre esa base de código se optó por realizar los entrenamientos en el marco de un toolkit/ecosistema, en nuestro caso Coqui-AI. Esto supuso una facilidad notable, al ser un código desarrollado y mantenido al día por su comunidad.
+
+Se consiguió así finalmente entrenar dos modelos con VITS a partir del dataset original, uno empleando un conversor de fonemas y otro entrenando el modelo puramente a partir de caracteres.
+
+\subsubsection{Despliegue de modelos}
+
+Una vez logrados resultados a raíz de entrenar modelos se consideró que sería apropiado desplegar algún sistema que permitiese de forma sencilla experimentar con ellos. Aunque finalmente el uso de Coqui-AI facilitaba la reproducibilidad de los resultados\footnote{En términos de inferencias, no de entrenamiento completo del propio modelo} la preparación del entorno para que se ejecute el modelo es algo laboriosa.
+
+De esta forma se valoraron diferentes opciones y se optó por preparar dos interfaces distintas. Por un lago, HuggingFace ofrece una plataforma de experimentación que se ha vuelto notablemente popular, así que desplegamos una instancia del toolkit, nuestro modelo y una pequeña aplicación de Gradio.
+
+Por otra parte se desplegó también un bot para la red Telegram, con el que el usuario puede interactuar recibiendo en tiempo real el resultado de las inferencias del modelo.
+
+\subsection{Problemas no resueltos}
+
+Durante el desarrollo del proyecto se han identificado algunos problemas que por diferentes motivos se ha decidido no resolver o ha resultado imposible darles solución.
+
+Algunos de estos problemas no resueltos son posibles líneas de trabajo futuras mientras que otros suponen a nuestro juicio un camino que no tiene salida.
+
+\subsubsection{Evaluación humana de las inferencias}
+
+Una de las grandes cosas que se han echado en falta en la recta final del proyecto han sido la existencia de métricas objetivas o algún otro mecanismo de evaluación de los resultados.
+
+Si uno de los objetivos del trabajo era la generación de falsificaciones realistas, habría sido ideal definir un mecanismo objetivo o subjetivo por el cual evaluar los resultados obtenidos. Este es un problema realmente complejo que no se acertó a dar una respuesta.
+
+En los diferentes modelos estudiados se emplea la escala MOS como índice de la calidad de los resultados, pero lo cierto es que esa escala no es del todo apropiada ni para evaluar la calidad de los resultados. Esa escala se pensó para evaluar la calidad de una transmisión de sonido, no realmente lo realista que suena un modelo determinado al generar voz.
+
+Además, aquí tampoco tendríamos que valorar simplemente la calidad de las muestras generadas (aunque fue durante el proyecto la métrica principal) sino su capacidad para de manera factible servir como herramienta de suplantación. 
+
+Esta diferencia se ejemplifica de forma clara en el siguiente caso: una muestra generada por el modelo VITS es un fichero WAV (sin pérdida) con 48kHz como tasa de muestreo y en él se pueden identificar leves errores de síntesis; cuando ese mismo fichero se prepara para enviarse por Telegram\footnote{Se ha habilitado un bot en Telegram que permite este tipo de interacción a modo de ejemplo en un entorno real} se codifica con el codec OPUS que limita el ancho de banda y la tasa de muestreo resultando en un audio que sigue "sonando a la persona" pero donde es más difícil identificar errores de síntesis.
+
+\subsubsection{Evaluación de la calidad de los modelos en castellano}
+
+Relacionado con la cuestión anterior, aunque la escala MOS que emplean la mayoría de modelos para autoreportar sus resultados tiene limitaciones, es una métrica que aporta información del progreso de la propia técnica de síntesis.
+
+Por desgracia ninguno de los modelos reporta estos valores para ningún caso distinto que el del inglés. Habría sido útil poder realizar esta evaluación con varios de estos modelos empleando un dataset de referencia en castellano de tamaño similar a LJSpeech (estándar de facto).
+
+Esta evaluación requeriría de evaluaciones de usuarios mediante encuestas con muestras sintetizadas y del propio dataset, algo que se dejó fuera del proyecto por falta de tiempo y recursos como para cumplirse con un grado aceptable de fiabilidad.
+
+\subsubsection{Generación de un dataset amplio}
+
+Aunque se ha comprobado que un dataset de 500 pares de audio/texto son suficiente para conseguir una calidad notable de generación de sonido, también se han encontrado algunas inferencias problemáticas cuando algunos fonemas se encuentran muy poco presentes o totalmente ausentes del dataset.
+
+En el anexo \hyperref[Análisis de datasets]{Análisis de datasets} se revisaban un poco las características particulares de los datos de LJSpeech y los fonemas resultantes de los datos textuales. Esta distribución sucede también con el modelo que hemos generado, con la diferencia de que tenemos 26 veces menos datos.
+
+Tener un dataset mucho más grande despejaría dudas sobre el tamaño como causa de los problemas esporádicos de inferencia y además sería una buena base para investigar otros modelos donde se hace uso de transferencia de conocimiento, como YourTTS que quedó fuera del estudio.
+
+\subsubsection{Herramientas de detección}
+
+Uno de los puntos que finalmente quedaron fuera tanto del análisis del Estado del Arte como de la experimentación fue la evaluación de las herramientas existentes para la detección de deep-fakes. 
+Por una parte, la planificación temporal no dejaba demasiado margen para esta tarea, que resultaba notablemente más compleja de abordar que lo referente a los modelos de generación. Por otra parte el material que se llegó a evaluar estaba tan desactualizado y era tan problemático que no se ha considerado útil incluirlo en el proyecto.
+
+La herramienta que más lejos se consiguió probar fue "DeepFake Audio Detection" del proyecto 
+Dessa - Open Source y aún así no se consiguió hacer que funcionase ni evaluase ninguna de las muestras que habíamos generado.
+
+Esta es una de las líneas de futuro más importantes, pues todo el trabajo realizado confirma la viabilidad y posibilidad real de generar falsificaciones de alta calidad y que perfectamente pueden ser empleadas con mala fe en todo tipo de escenarios.
+
+\newpage 

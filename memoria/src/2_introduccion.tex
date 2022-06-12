@@ -1,0 +1,171 @@
+\section{Introducción}
+
+\subsection{Contexto y justificación del Trabajo}
+
+% Punto de partida del trabajo (¿Cuál es la necesidad a cubrir? ¿Por qué es un tema relevante? ¿Cómo se resuelve el problema de momento?) y aportación realizada (¿Qué resultado se quiere obtener?)
+
+% Es importante tener en cuenta que el trabajo final tiene que ser comprensible para cualquier persona que conozca el área de conocimiento, pero no tiene porqué ser experta en el tema del que versa el trabajo. 
+
+En la actualidad se vive bajo la estela de lo que algunos llamaron Revolución Digital, otros Tercera Revolución industrial y otros Era de la Información. El acceso a la información es generalizado y sencillo para la inmensa mayoría de la población. En España el INE\hyperref[RI_4]{[4]} estima que el 93.9\% de la población general hace uso regunal de Internet y esa cifra se eleva al 99,6\% en la población más joven.
+
+Existen una larga lista de transformaciones sociales asociadas a esta omnipresencia de la información, desde la investigación académica hasta los extremos más mundanos de la sociedad civil. Pero al contrario de lo que se pensaba décadas atrás, el acceso a la información no siempre equivale al acceso a la verdad. Incluso podríamos llegar a afirmar que el acceso generalizado a la información supone una situación de vulnerabilidad mayor a la información falsa.
+
+En este escenario es donde los avances más recientes en Inteligencia Artificial han encontrado una aplicación en la producción de información falsa. Estas creaciones son lo que denominamos "deep-fakes", falsificaciones de alta calidad y naturalidad que cumplen el propósito de engañar a las personas.
+
+En la actualidad existen pocas técnicas de detección de estas falsificaciones especialmente orientadas o destinadas a la falsificación de voz y las pocas herramientas que existen no son conocidas o no son accesibles al usuario medio que puede terminar por consumir las falsificaciones.
+
+Sumado a esta falta de herramientas para la detección, el peligro de las falsificaciones de voz es aún mayor que en el caso del contenido en vídeo. Mientras una falsificación en vídeo requiere de un trabajo semiartesanal\footnote{Véase por ejemplo el caso del anuncio de Cruzampo que revivió a Lola Flores, el resultado fue una mezcla de técnicas de montaje de vídeo, una actriz con composición facial similar y el uso de técnicas basadas en IA. } y de una inmensa cantidad de recursos de cómputo para un resultado de no demasiada calidad\footnote{La mayoría de estas falsificaciones que han alcanzado cierto grado público de difusión y popularidad eran vídeos de baja resolución, precisamente porque la falta de nitidez permitía ocultar fácilmente las deficiencias de la falsificación.}, la tecnología actual permite llegar a generar falsificaciones de voz indetectables al oído humano.
+
+Nuestra aportación aquí es la transferencia de conocimiento al caso del idioma castellano, donde al contrario que en idioma inglés apenas existe trabajo previo específico. Esto lo haremos empezando por comprobar las posibilidades reales de generación de estas falsificaciones y trazando el camino a la posible detección de las mismas.
+
+\subsection{Objetivos del Trabajo}
+
+% Listado de los objetivos del trabajo
+
+En este trabajo se ha marcado como objetivo esencial de investigación abordar las técnicas y tecnologías empleadas en la producción de estas falsificaciones en la actualidad y en particular las relacionadas con la síntesis de voz.
+
+En términos prácticos también se sugirió inicialmente el objetivo de generar estas mismas falsificaciones empleando la voz propia como referencia, así como las posibilidades de detección de falsificaciones. Estos objetivos prácticos se encontraban subsumidos al propio avance de la investigación y la accesibilidad de las herramientas si las hubiera.
+
+Se consideró además orientar la investigación a las particularidades del idioma castellano, aunque no se podía afirmar inicialmente que las técnicas y tecnologías fuesen dependientes del idioma o hasta qué punto esa dependencia tenía relevancia para condicionar los objetivos de este trabajo.
+
+El avance inicial en el desarrollo del trabajo permitió confirmar la existencia de herramientas de síntesis, la posibilidad de adaptarlas al idioma castellano así como la generación de un conjunto de datos para pruebas con la propia voz. De esta forma se fijaron definitivamente los objetivos esenciales del trabajo.
+
+\subsection{Enfoque y método seguido}
+ % Indicar cuáles son las posibles estrategias para llevar a cabo el trabajo e indicar cuál es la estrategia elegida (desarrollar un producto nuevo, adaptar un producto existente, …). Valorar porque esta es la estrategia más apropiada para conseguir los objetivos.
+
+El ámbito estudiado se encuentra en un momento de volatilidad extrema, tanto es así que durante el desarrollo de este trabajo de apenas 3 meses se han identificado publicaciones nuevas que han obligado en cierto grado a cambiar algunas afirmaciones aquí vertidas.
+
+En lo que respecta a la investigación el enfoque ha sido una revisión cronológica de la literatura prestando especial atención a los avances de los últimos 5 años. Por lo limitado del tiempo de estudio se hizo inicialmente un filtrado especialmente fuerte de publicaciones, descartando todas aquellas que no tuvieran una implementación en código de referencia.
+
+Este filtrado de la literatura tenía gran importancia para hacer posible la experimentación posterior, quedaba totalmente fuera de los límites del Trabajo implementar desde cero un modelo nuevo o un modelo ya definido pero no implementado por nadie antes.
+
+En términos experimentales la metodología empleada ha sido comenzar por comprobar los resultados documentados y partir de ellos valorar la posibilidad de adaptar los modelos al caso particular del castellano.
+
+Por último se evaluaría la calidad de los resultados, tanto en simples términos de síntesis de voz como en el caso particular de si cumplirían lo necesario para suplantar al hablante original.
+
+\subsection{Planificación del Trabajo}
+
+% Descripción de los recursos necesarios para realizar el trabajo, las tareas a realizar y una planificación temporal de cada tarea utilizando un diagrama de Gantt o similar. Esta planificación tendría que marcar cuáles son los hitos parciales de cada una de las PEC. 
+
+Inicialmente se propuso la siguiente organización de tareas para el trabajo:
+
+\begin{itemize}
+
+\item Estudio de los modelos existentes para la producción de voz a partir de texto
+
+    \begin{itemize}
+    \item Estudio de los modelos TTS entrenados en general
+    \item Estudio de otros modelos de síntesis de habla
+    \item Estudio específico de los modelos orientados a generar deep-fakes
+    \end{itemize}
+\item Estudio de las herramientas existentes para la producción de deep-fakes
+    \begin{itemize}
+         \item Evaluación de las herramientas existentes
+         \item Producción de un deep-fake usando mi voz
+    \end{itemize}
+\item Estudio de la teoría y formas de detección de deep-fakes
+\end{itemize}
+
+En este punto aún no se tenía apenas conocimiento del dominio a investigar y se asumía que existían herramientas específicas para la generación de deepfakes de voz\footnote{Esto sí parece ser el caso para la edición de vídeo incorporando otras caras por ejemplo.}.
+
+De esta organización de tareas se proyectaron una serie de hitos más concretos y una propuesta de temporalización para el trabajo abordado que se resume en el siguiente esquema:
+
+\subsubsection{Hitos de investigación}
+
+\begin{itemize}
+    \item Recopilación de una base esencial de la literatura existente como punto de partida para la investigación: 25 de marzo
+    \item Conocimiento básico de los modelos existentes en TTS: 8 de abril
+    \item Conocimiento de las características más relevantes de los modelos para la producción específica de deep-fakes: 15 de abril
+    \item Conocimiento de las técnicas para la detección de deep-fakes: 15 de mayo
+\end{itemize}
+
+\subsubsection{Hitos prácticos}
+\begin{itemize}
+    \item Preparación del entorno de trabajo para el entrenamiento: 27 de marzo
+    \begin{itemize}
+        \item Configuración de CUDA, Torch, Tensorflow y otras piezas software.
+        \item Pruebas empleando hardware propio y valoración de usar Google Colab u otros servicios similares.
+    \end{itemize}
+    \item Entrenamiento de modelos existentes con datasets existentes: 15 de abril
+    \begin{itemize}
+        \item Tacotron2
+        \item WaveRNN
+        \item WaveGlow
+    \end{itemize}
+    \item Generación de un dataset propio de voz para el entrenamiento de modelos: 15 de abril
+    
+    \item Entrenamiento de modelos existentes con el dataset generado: 30 de abril
+    \begin{itemize}
+        \item Tacotron2
+        \item WaveRNN
+        \item WaveGlow
+    \end{itemize}
+    
+    \item Posible mejora y ajuste de modelos estudiados al dataset generado: 15 de mayo
+    \item Prueba de herramientas de detección de deep-fakes: 15 de mayo
+    \item Despliegue de una interfaz de prueba de los modelos generados: 30 de mayo.
+    
+\end{itemize}
+
+Las fechas propuestas en esta planificación tenían en cuenta que el trabajo se cubriría en 2 etapas separadas en la fecha del 16 de abril. Estas etapas de trabajo serían reportadas en la PEC2 y PEC3, con lo que el punto medio entre ambas sería un buen momento para hacer una revisión crítica de la planificación.
+
+El grado de cumplimiento de esta planificación en general fue satisfactorio pero hay que tener en consideración que es imposible planificar de forma precisa un trabajo del que aún se desconoce en bastante grado su magnitud y/o aquellas ramificaciones que merecerán más atención.
+
+Si entendemos esta planificación como un árbol de conocimiento el avance natural del trabajo de investigación supone también una labor de poda de este árbol inicial y el crecimiento de nuevas ramas que se acercan más a los objetivos del trabajo.
+
+De esta forma, los cambios más significativos a esta planificación serían los siguientes:
+
+\begin{itemize}
+    \item Inclusión de bastantes más modelos generativos para la síntesis de voz
+    \begin{itemize}
+        \item Deepvoice
+        \item FastPitch
+        \item FastSpeach
+        \item VITS
+        \item YourTTS
+    \end{itemize}
+    \item Elección del mejor modelo y vuelco de recursos en su entrenamiento: VITS
+    \item Confirmación de la ausencia de herramientas específicas y centrado de la atención en el uso particular de modelos TTS de mayor calidad.
+    \item Apenas se ha conseguido poner en funcionamiento alguna herramienta de detección de falsificaciones por los inmensos problemas técnicos y limitaciones encontradas, su peso se ha reducido acorde.
+    \item Se descartó la idea inicial de dedicar recursos a los modelos voice-to-voice por la falta de modelos funcionales probables.
+\end{itemize}
+
+Adicionalmente a esto se descartó entrenar modelos como WaveRNN y WaveGlow como se proponía originalmente, ya que la atención se centró en VITS que era un modelo extremo a extremo y no necesitaba un vocoder especialmente entrenado. 
+
+Aunque los resultados de investigación se consideran positivos y los objetivos iniciales del proyecto se han cubierto, no se puede afirmar que la planificación se haya seguido de manera demasiado estricta. 
+
+No se hace una lectura fatalista de esta flexibilidad con la que se ha abordado la planificación, pero sí se extrae de ella la necesidad de tener un conocimiento más profundo del dominio antes de proponer una planificación formal que tenga posibilidades de ser cumplida en más alto grado.
+
+\subsection{Breve sumario de productos obtenidos}
+
+% No hay que entrar en detalle: la descripción detallada se hará en el resto de capítulos.
+
+Los productos obtenidos son el resultado de la aplicación práctica del estudio teórico que se ha hecho en el dominio del trabajo, esencialmente se componen te un dataset de audio final con 500 fragmentos de audio libres de ruido y errores y varios entrenamientos de modelos de generación de voz a partir de texto, destacando el modelo VITS.
+
+Además se entrega como parte de trabajo una interfaz de pruebas de los modelos entrenados más relevantes, así como registros de entrenamiento y muestras de los resultados generables.
+
+Una lista completa de estos productos obtenidos se encuentra en el capítulo Entregables, de igual manera se aborda el significado de cada uno de los productos obtenidos así como los hitos de investigación en el capítulo Resultados.
+
+\subsection{Breve descripción de los otros capítulos de la memoria}
+
+En esta memoria se condensa el grueso del trabajo desarrollado. Los aspectos más relevantes se ha organizado en los capítulos que se describen a continuación, mientras que otros elementos o contenidos de relevancia secundaria se han redactado como anexos.
+
+\begin{itemize}
+    \item Metodología: se expone con detalle el método de trabajo seguido y se razonan las decisiones tomadas en ese aspecto.
+    \item Estado del arte: se abordan los últimos y mejores desarrollos en la síntesis de voz y específicamente orientados en la imitación de un solo hablante.
+    \item Resultados: se aportan los hitos conseguidos en el trabajo tanto de investigación como experimental, se proporcionan también instrucciones para probar y revisar aquellos resultados que sean interactivos o precisen recursos especiales.
+    \item Discusión: se analizan a la luz de los resultados los planteamientos o hipótesis iniciales del trabajo, se exponen los descubrimientos, generalizaciones y excepciones.
+    \item Conclusiones: se exponen de forma sintética los resultados, los comentarios del capítulo de discusión y se conectan con las premisas del trabajo.
+    \item Entregables: lista de elementos elaborados, también se listan algunos resultados intermedios o parciales.
+\end{itemize}
+
+Adicionalmente se han redactado los siguientes anexos:
+
+\begin{itemize}
+    \item Grabación de datasets: detalles técnicos y dificultades en la grabación.
+    \item Entrenamiento en Google Colab: problemas específicos sobre el entrenamiento empleando los libros de Google Colab.
+    \item Análisis de datasets: resultados de haber analizado varios datasets ampliamente empleados en el entrenamiento de los modelos estudiados en inglés.
+    \item Entorno de entrenamiento: se comenta las características del entorno de entrenamiento local principal y algunas dificultades para su puesta en funcionamiento.
+\end{itemize}
+
+\newpage 

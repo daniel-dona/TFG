@@ -1,0 +1,77 @@
+\section{Conclusiones}
+
+\subsection{Conclusiones}
+
+% Una descripción de las conclusiones del trabajo: ¿Qué lecciones se han aprendido del trabajo?
+% Una reflexión crítica sobre el logro de los objetivos planteados inicialmente: ¿Hemos logrado todos los objetivos? Si la respuesta es negativa, ¿por qué motivo? 
+
+Al comienzo de este trabajo de investigación se planteaba la problemática contemporánea del exceso de información y la dificultad para distinguir la información veraz de la que no lo es. Ante la marea de información y el acceso generalizado a ella que tenemos (empleando buscadores, agregadores de noticias y otros recursos en Internet) hemos en cierto grado delegado la credibilidad de la información a la persona que informa (periodistas, investigadores, expertos...).
+
+Las noticias falsas no son algo actual, desde que existe la prensa escrita ha existido también en cierto grado su manipulación como herramienta que sirve a unos u otros intereses. Esto es algo que se hace mucho más evidente en tiempos de guerra como los actuales.
+
+Lo novedoso en la situación es que si antes podíamos confiar en la palabra de ciertas personas, ahora no podemos asegurar que las personas sean realmente quienes dicen ser y no terceros que la suplantan. Los modelos de Aprendizaje Computacional y las herramientas han avanzado lo suficiente para cruzar el umbral de crear falsificaciones creíbles de voz y vídeo. 
+
+Tras haber estudiado el Estado del Arte en este dominio la conclusión es que claramente es posible generar estas falsificaciones de voz en castellano y relativamente sencillo para quien tenga conocimientos en informática. Los resultados de experimentación de este trabajo así lo prueban, cuanto menos en términos de posibilidad ya que no se ha realizado actividad de suplantación alguna.
+
+Esta confirmación pone encima de la mesa aún más la necesidad de elaborar técnicas de detección para estas falsificaciones, algo que también se aspiraba a poder abordar en el trabajo pero en lo cual se ha tenido bastante menos éxito. 
+
+En la medida en que el tiempo nos ha impedido profundizar en algunos aspectos que por otra parte se consideran interesantes como trabajo futuro, se listan a continuación posibles líneas de trabajo en las que continuar.
+
+\subsection{Líneas de futuro}
+
+Durante el desarrollo de este trabajo ha habido muchas posibles líneas de investigación que se han descartado necesariamente. No en todos los casos el descarte ha tenido la misma motivación, por lo que podemos hablar de varias líneas de trabajo posibles pero en diferentes perspectivas.
+
+\subsubsection{Estudio sistemático de modelos}
+
+Una de las limitaciones mayores del desarrollo de este proyecto de investigación ha sido el tiempo disponible tanto para el propio desarrollo de la investigación como para la realización de pruebas relacionadas con lo investigado.
+
+Se encontraron numerosos modelos con los que se podía haber experimentado y perfectamente puede que alguno de los modelos que no se ha abordado de mejores resultados en idioma castellano aunque las pruebas en inglés no lo mostrasen.
+
+Documentar experimentalmente cada uno de los modelos con resultados objetivos y comparables sería una clara línea de trabajo futura, esta labor no parece haberse realizado sistemáticamente ni en inglés, menos aún en otros idiomas.
+
+\subsubsection{Modelos sin implementación}
+
+En varios casos se han estudiado modelos que aunque resultan prometedores no tienen ninguna implementación real con la que se pueda experimentar. 
+
+Esto puede suceder por varios motivos, pero lo habitual es que estas publicaciones procedan de investigadores de empresas que no tienen interés en liberar como código abierto. Este parece ser el caso por ejemplo de la reciente publicación de NaturalSpeech.
+
+Otro caso posible es el de modelos tan recientes que aún no se han publicado o documentado del todo los resultados. Esta es en cierta medida el caso de YourTTS, donde además existen reservas éticas para la publicación de detalles sobre cómo ajustar finamente los modelos entrenados.
+
+Si realmente un modelo se considera una mejora sustancial existe la posibilidad de implementarlo en base a la información publicada. No es una tarea sencilla ni que requiera de pocos recursos, pero es ciertamente factible. Este es el caso por ejemplo de Tacotron 2, donde las implementaciones más usadas no son oficiales sino desarrolladas por terceros.
+
+\subsubsection{Voice copy}
+
+Al principio de este trabajo se identificaron 3 grandes grupos de metodologías para la síntesis de voz que emule a un hablante conocido: texto a voz; ataques de reproducción/repetición y clonado de voz.
+
+El grueso del trabajo se ha centrado en modelos de texto a voz, pues eran los más interesantes desde el punto de vista del aprendizaje computacional y donde mayor número de resultados hay, pero existen otros intentos de generación de voz sin pasar por una representación textual.
+
+Estos modelos funcionan extrayendo características de una muestra de audio del hablante a imitar e intentan proyectarlas sobre una muestra de voz de un segundo hablante. De esta forma, la velocidad de habla, pausas y otras características pueden ser imitadas por un actor de voz mientras que otras características como las frecuencias pueden ser tomadas del modelo del hablante final.
+
+Aunque si se tienen los recursos humanos adecuados estos modelos pueden dar mejores resultados que los modelos TTS actuales, siguen siendo dependientes de una persona que imite gran parte de las características de la voz final. Podemos entender estos modelos como un apoyo o herramienta para dobladores o actores de voz pero no como un modelo generador puramente computacional.
+
+Estos modelos se situarían a medio camino entre los ataques de repetición (totalmente artesanales) y los modelos que mayormente hemos estudiado como texto a voz (totalmente computacionales).
+
+\subsubsection{Detección y espacios de investigación}
+
+Siguiendo la línea de lo ya comentado en el capítulo de Resultados y nuevamente en el capítulo de Discusión, una de los bloques más grandes que finalmente quedo fuera delo proyecto fue la realización de pruebas de detección de las inferencias de voz generadas.
+
+En el momento actual los modelos generativos y su calidad llevan la delantera en términos de investigación y solamente en los últimos años han empezado a aparecer resultados de investigación que aborden la detección de falsificaciones de voz.
+
+Uno de los espacios más prometedores para el avance de esta labor es el reto ASVspoof \hyperref[CON_1]{[22]}, al que debería prestársele especial atención.
+
+% Las líneas de trabajo futuro que no se han podido explorar en este trabajo y han quedado pendientes. 
+
+\subsection{Seguimiento de la planificación}
+
+La planificación del trabajo en líneas generales fue adecuada, pero se fue demasiado optimista en la cantidad de tiempo realmente disponible y en la facilidad de alguna de las tareas. Eso llevó a que en cierto grado no se pudiese abarcar todo lo que se había propuesto inicialmente.
+
+El mayor error de planificación tiene relación con la etapa de investigación de los modelos, publicaciones o herramientas de detección. Equivocadamente se asumió una dificultad similar a la encontrada a la hora de abordar la parte generativa de las falsificaciones pero el panorama era realmente distinto.
+
+La planificación de tareas que nunca se han abordado siempre es una apuesta en la que en ocasiones se acierta y en ocasiones se falla. La reevaluación de la planificación es una buena forma de evitar que un error de planificación ponga el riesgo el aporte del trabajo y así se documentó en las entregas parciales de este proyecto.
+
+En líneas generales se considera que el seguimiento de la planificación ha sido aceptable pero mejorable si se hubiese calculado mejor el tiempo y recursos disponibles.
+
+% Un análisis crítico del seguimiento de la planificación y metodología a lo largo del producto: ¿Se ha seguido la planificación? ¿La metodología prevista ha sido la adecuada? ¿Ha habido que introducir cambios para garantizar el éxito del trabajo? ¿Por qué? 
+
+
+\newpage 

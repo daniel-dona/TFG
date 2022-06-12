@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=25mm,
+ right=25mm,
+ top=30mm
+ }
+\usepackage[utf8]{inputenc} 
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage[rflt]{floatflt}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{longtable,multirow,booktabs}
+\usepackage{cite}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage[]{sidecap}
+\usepackage{adjustbox}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage[]{xcolor}
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+\usepackage{tabularx}
+\usepackage{csquotes}
+\usepackage{hyperref} 
+
+\usepackage{academicons}
+\definecolor{orcidlogocol}{HTML}{A6CE39}
+
+\renewcommand{\thefootnote}{\Roman{footnote}}
+\setlength{\footnotesep}{0.5cm}
+
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{5mm}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0,0,0}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize\color{codegreen},
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+% Estructura por componentes
+
+\begin{document}
+
+\input{0_1_portada.tex}  
+\input{0_2_contraportada}
+\input{0_3_ficha} 
+\input{0_4_tabla_de_contenidos} 
+
+
+\input{aux/page_style}
+
+\input{1_resumen.tex}
+\newpage \input{2_introduccion.tex}
+\newpage \input{3_metodologia}
+\newpage \input{4_estado_del_arte}
+\newpage \input{5_resultados}
+\newpage \input{6_discusion}
+\newpage \input{7_conclusiones}
+\newpage \input{8_entregables}
+\newpage \input{X_glosario}
+\newpage \input{Y_bibliografia}
+\newpage \input{Z_anexos}
+
+\end{document}
+
